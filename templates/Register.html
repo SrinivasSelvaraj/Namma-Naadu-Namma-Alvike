@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+  <link rel="icon" href="https://pbs.twimg.com/profile_images/1830466266475483136/Ep0gEiM__400x400.jpg" type="image/png">
+
+  <!-- Font style link for Kannada text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      background-image: url('https://pbs.twimg.com/profile_banners/1830463398951485440/1725252143/1500x500');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      padding-top: 130px; /* Space for the header */
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    .header-container {
+      background: linear-gradient(90deg, yellow, red);
+      padding: 5px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      opacity: 0.9;
+      height: 90px;
+      z-index: 2;
+    }
+
+    .emblem {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      margin-right: 15px;
+    }
+
+    .title-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      color: black;
+      font-family: 'Akaya Kanadaka', system-ui;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin: 0;
+      margin-top: 4px;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .nav-buttons a {
+      background-color:yellow;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 16px;
+      border: 2px solid black;
+    }
+
+    .nav-buttons a:hover {
+      background-color: yellow;
+      color: black;
+    }
+
+    .form-container {
+      position: relative;
+      z-index: 1;
+      background-color: transparent;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      width: 400px;
+      color: white;
+      overflow: hidden;
+      margin-top: 30px;
+    }
+
+    .form-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      z-index: -1;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #fff;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:hover,
+    input[type="password"]:hover,
+    input[type="email"]:hover {
+      border-color: #007bff;
+    }
+
+    .error {
+      color: #ff6b6b;
+      font-size: 14px;
+    }
+
+    .flash.success {
+      color: #28a745;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .flash.error {
+      color: #ff6b6b;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #218838;
+    }
+
+    footer {
+      background: linear-gradient(to bottom, yellow 60%, red 40%);
+      color: black;
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      margin-top: 60px;
+      font-size: 18px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header-container">
+    <div style="display: flex; align-items: center;">
+      <img src="https://pbs.twimg.com/profile_images/1830466266475483136/Ep0gEiM__400x400.jpg" alt="Emblem" class="emblem">
+      <div class="title-container">
+        <h1>ನಮ್ಮ ನಾಡು ನಮ್ಮ ಅಳ್ವಿಕೆ</h1>
+        <h2>ಕನ್ನಡಿಗರ ಕೇಂದ್ರಿತ ಪಕ್ಷ</h2>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <a href="/">Home</a>
+      <a href="/Login">Login</a>
+    </div>
+  </header>
+
+  <!-- Registration Form -->
+  <div class="form-container">
+    <h2>Register</h2>
+
+    <!-- Flash Messages Block -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      {{ form.csrf_token }}
+
+      <label>{{ form.Name.label }}</label>
+      {{ form.Name(size=32, type="text") }}
+      {% for error in form.Name.errors %}
+        <div class="error">{{ error }}</div>
+      {% endfor %}
+
+      <label>{{ form.Email.label }}</label>
+      {{ form.Email(size=32, type="email") }}
+      {% for error in form.Email.errors %}
+        <div class="error">{{ error }}</div>
+      {% endfor %}
+
+      <label>{{ form.Password.label }}</label>
+      {{ form.Password(size=32, type="password") }}
+      {% for error in form.Password.errors %}
+        <div class="error">{{ error }}</div>
+      {% endfor %}
+
+      <label>{{ form.ConfirmPassword.label }}</label>
+      {{ form.ConfirmPassword(size=32, type="password") }}
+      {% for error in form.ConfirmPassword.errors %}
+        <div class="error">{{ error }}</div>
+      {% endfor %}
+
+      {{ form.Submit(class="submit-btn") }}
+    </form>
+    <!-- Already have an account link -->
+    <p style="text-align: center; margin-top: 15px; color: #ccc;">
+      Already have an account?
+      <a href="/Login" style="color: #00aced; text-decoration: none;">Login</a>
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 ನಮ್ಮ ನಾಡು ನಮ್ಮ ಅಳ್ವಿಕೆ. ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.
+  </footer>
+
+</body>
+</html>

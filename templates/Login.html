@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ಲಾಗಿನ್</title>
+  <link rel="icon" href="https://pbs.twimg.com/profile_images/1830466266475483136/Ep0gEiM__400x400.jpg" type="image/png">
+
+  <!-- Kannada Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      background-image: url('https://pbs.twimg.com/media/GpZAJ6takAATVLc?format=jpg&name=900x900');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+      position: relative;
+      padding-top: 100px;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    .header-container {
+      background: linear-gradient(to right, #ffcc00, #ff3300);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 20px;
+      height: 90px;
+      position: fixed;
+      top: 0;   
+      left: 0;
+      width: 100%;
+      z-index: 3;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      opacity: 0.7;
+    }
+
+    .emblem {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+
+    .title-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: 'Akaya Kanadaka', cursive;
+      color: black;
+    }
+
+    .main-title {
+      font-size: 50px;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .sub-title {
+      font-size: 25px;
+      margin: 0;
+    }
+
+    .nav-buttons {
+      position: absolute;
+      
+      right: 50px;
+      top: 35px;
+    }
+
+    .nav-buttons a {
+      padding: 10px 35px;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .nav-buttons a:hover {
+      background-color: #ddd;
+    }
+
+    .form-container {
+      position: relative;
+      z-index: 1;
+      background-color: transparent;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      width: 350px;
+      color: white;
+      overflow: hidden;
+      margin-top: 30px;
+      margin-right: 40px;
+    }
+
+    .form-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 12px;
+      z-index: -1;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #fff;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:hover,
+    input[type="password"]:hover {
+      border-color: #007bff;
+    }
+
+    .error {
+      color: #ff6b6b;
+      font-size: 14px;
+    }
+
+    .flash.success {
+      color: #28a745;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .flash.error {
+      color: #ff6b6b;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .register-link a {
+      color: #e90c0c;
+      text-decoration: underline;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .register-link a:hover {
+      color: #ccc;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-family: 'Akaya Kanadaka', cursive;
+      z-index: 2;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        justify-content: center;
+        padding-top: 100px;
+      }
+
+      .form-container {
+        margin-right: 0;
+      }
+
+      .main-title {
+        font-size: 24px;
+      }
+
+      .sub-title {
+        font-size: 14px;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header-container">
+    <div style="display: flex; align-items: center;">
+      <img src="https://pbs.twimg.com/profile_images/1830466266475483136/Ep0gEiM__400x400.jpg" alt="Emblem" class="emblem">
+      <div class="title-container">
+        <div class="main-title">ನಮ್ಮ ನಾಡು ನಮ್ಮ ಅಳ್ವಿಕೆ</div>
+        <div class="sub-title">ಕನ್ನಡಿಗರ ಕೇಂದ್ರಿತ ಪಕ್ಷ</div>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <a href="/">Home</a>
+      <a href="/Register">New User</a>
+    </div>
+  </header>
+
+  <!-- Login Form -->
+  <div class="form-container">
+    <h2>ಲಾಗಿನ್</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      {{ form.csrf_token }}
+
+      <label>{{ form.Email.label }}</label>
+      {{ form.Email(size=32, type="text") }}
+      {% for error in form.Email.errors %}
+        <div class="error">{{ error }}</div>
+      {% endfor %}
+
+      <label>{{ form.Password.label }}</label>
+      {{ form.Password(size=32, type="password") }}
+      {% for error in form.Password.errors %}
+        <div class="error">{{ error }}</div>
+      {% endfor %}
+
+      {{ form.Submit(class="submit-btn") }}
+
+      <div class="register-link">
+        <a href="/Register">ಹೊಸ ಬಳಕೆದಾರರು? ಇಲ್ಲಿ ನೋಂದಾಯಿಸಿ</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 ನಮ್ಮ ನಾಡು ನಮ್ಮ ಅಳ್ವಿಕೆ. ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.
+  </footer>
+
+</body>
+</html>

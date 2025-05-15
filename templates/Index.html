@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+  <html lang="kn">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ನಮ್ಮ ನಾಡು ನಮ್ಮ ಅಳ್ವಿಕೆ</title>
+    <link rel="icon" href="https://pbs.twimg.com/profile_images/1830466266475483136/Ep0gEiM__400x400.jpg" type="image/png">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+ 
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Akaya Kanadaka', sans-serif;
+        background: url('https://pbs.twimg.com/profile_banners/916223371616043008/1507280235/1500x500') no-repeat center center fixed;
+        background-size: cover;
+        background-color: rgba(245, 140, 3, 0.671); 
+        background-blend-mode: overlay; /* Blend the color with the image */
+        padding-top: 100px; 
+        overflow-x: hidden;
+        padding-top: 150px;
+        backdrop-filter: blur(5px); /* Add blur effect */
+      }
+      /* Header */
+      .header-container {
+        background: linear-gradient(to bottom, yellow 60%, red 40%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 40px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100px;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .left-container {
+        flex: 0 0 auto;
+      }
+
+      .emblem {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 1px solid white;
+        background-color: white;
+            }
+
+            .title-container {
+        flex: 2;
+        text-align: left;
+        padding-left: 20px;
+        color: black;
+            }
+
+            .title-line h1, .title-line h2 {
+        margin: 0;
+        font-weight: bold;
+        font-size: 40px;
+            }
+
+            .title-line h2 {
+        font-weight: normal;
+        font-size: 25px;
+            }
+
+            .language-switch {
+        position: absolute;
+        right: 200px;
+        top: 25px;
+            }
+
+            .language-switch select {
+        padding: 5px 10px;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 10px;
+        border: 1px solid black;
+        cursor: pointer;
+            }
+
+            .nav-links {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        position: absolute;
+        right: 40px;
+        top: 25px;
+            }
+
+            .nav-links a {
+        text-decoration: none;
+        color:rgb(0, 24, 158);
+        font-size: 16px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+            }
+
+            .nav-links a:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links i {
+        font-size: 18px;
+            }
+
+            .nav-links a[href="/Login"]::before {
+        content: "\f2f6"; /* Font Awesome icon for user */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-right: 5px;
+        color:#eef103
+            }
+
+            .nav-links a[href="/Register"]::before {
+        content: "\f234"; /* Font Awesome icon for user-plus */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-right: 5px;
+        color:#eef103
+            }
+
+            .nav-links a[href="/ContactUs"]::before {
+        content: "\f0e0"; /* Font Awesome icon for envelope */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-right: 5px;
+        color:#eef103
+            }
+
+            .nav-links a[href="/Donate"]::before {
+          content: "\f4d3"; /* Font Awesome icon for donate */
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          margin-right: 5px;
+          color: rgb(58, 240, 12); 
+            }
+
+            .nav-links a[href="/Donate"] {
+          color: rgb(0, 24, 159)  ; 
+            }
+ 
+     
+
+      /* Carousel */
+      .carousel {
+        margin-top: 30px;
+        width: 100%;
+        max-width: 90%;
+        margin-inline: auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        will-change: transform;
+      }
+
+      .carousel-slide {
+        min-width: 100%;
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .carousel-controls {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        z-index: 2;
+      }
+
+      .carousel-btn { 
+        background-color: rgba(0, 0, 0, 0.4);
+        border: none;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 10px 20px;
+        transition: background-color 0.3s;
+      }
+
+      .carousel-btn:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+ 
+      /* Social Media */
+      .social-icons {
+        position: absolute;
+        top: 200px;
+        right: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 999;
+      }
+
+      .social-icons a {
+        color: white;
+        background-color: #333;
+        padding: 12px;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 20px;
+        transition: background-color 0.3s;
+      }
+
+      .social-icons a:hover {
+        background-color: #555;
+      }
+
+      /* About Us */
+      .about-us {
+        max-width: 80%;
+          background: linear-gradient(135deg, yellow, red);
+          margin: 40px auto;
+          padding: 30px;
+          border-radius: 12px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          text-align: center;
+          animation: gradientBackground 10s ease infinite;
+              }
+
+              @keyframes gradientBackground {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+              }
+
+      .about-us h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .about-us p {
+        font-size: 18px;
+        line-height: 1.6;
+        color: #555;
+        text-align: left;
+      }
+
+      .about-us ul {
+        text-align: left;
+        padding-left: 20px;
+        margin-top: 10px;
+      }
+
+      .about-us ul li {
+        margin-bottom: 8px;
+      }
+
+         /* Footer */
+    footer { 
+    background: linear-gradient(to bottom, yellow 60px, red 40px);
+    color: black;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    margin-top: 50px;
+    font-size: 13px;
+    width: 100%;
+    position: fixed;
+    bottom: -120px;
+    left: 0;
+    }
+
+      /* Move inline styles for carousel buttons here */
+      .carousel-btn {
+        pointer-events: all;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .carousel-btn:hover {
+        background: rgba(0, 0, 0, 0.7);
+      }
+
+      /* Add will-change for better animation performance */
+      .carousel-track, #socialTrack {
+        will-change: transform;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Header -->
+    <header class="header-container">
+      <div class="left-container">
+        <img src="https://pbs.twimg.com/profile_images/1830466266475483136/Ep0gEiM__400x400.jpg" alt="ಅಂಕಿತ" class="emblem">
+      </div>
+
+      <div class="title-container">
+        <div class="title-line">
+          <h1>ನಮ್ಮ ನಾಡು ನಮ್ಮ ಅಳ್ವಿಕೆ</h1>
+        </div>
+        <div class="title-line">
+          <h2>ಕನ್ನಡಿಗರ ಕೇಂದ್ರಿತ ಪಕ್ಷ</h2>     
+        </div>
+      </div>
+
+      <div class="language-switch">
+        <select onchange="changeLanguage(this.value)">
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+    
+
+    <!-- Navigation Links -->
+      <nav class="nav-links" style="position: absolute; right: 100px; top: 80%; transform: translateY(-40%);">
+      <a href="/Donate">ದಾನ ಮಾಡಿ</a>
+      <a href="/ContactUs">ಸಂಪರ್ಕಿಸಿ</a>
+      <a href="/Login">ಲಾಗಿನ್</a>
+      <a href="/Register">ನೋಂದಣಿ</a>
+    </nav>
+    </header>
+
+    <!-- Carousel -->
+    <div class="carousel" id="carousel">
+      <div class="carousel-track">
+        <div class="carousel-slide" style="background-image: url(https://pbs.twimg.com/media/GbS78mxb0AAUQC5?format=jpg&name=large);"></div>
+        <div class="carousel-slide" style="background-image: url(https://images.deccanchronicle.com/dc-Cover-61cb0ana4m3dav64bcn2v37an6-20171224025336.Medi.jpeg);"></div>
+        <div class="carousel-slide" style="background-image: url(https://akm-img-a-in.tosshub.com/indiatoday/images/story/media_bank/202309/cauvery-water-sharing-protest-234618136-16x9.jpg?VersionId=bfXJUSRe8Ur8cMYmoK8R._9fUkpNycHw&size=690:388);"></div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-btn" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/profile.php?id=61565653887449" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://x.com/karnatakaparty1" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.instagram.com/karnatakaparty1" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/karnatakaparty1" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- About Us -->
+    <section class="about-us">
+      <h2 style="font-size: 36px; font-weight: bold; text-align: center; margin-bottom: 20px; color: darkred;">ನಮ್ಮ ಬಗ್ಗೆ</h2>
+
+      <p style="font-size: 18px; line-height: 1.8; text-align: justify; margin-bottom: 20px;">
+        ನಮ್ಮ ನಾಡು, ನಮ್ಮ ಅಳ್ವಿಕೆ ಎನ್ನುವ ತತ್ವವನ್ನು ಆಧಾರವಾಗಿ ಇಟ್ಟುಕೊಂಡು, ಕನ್ನಡಿಗರ ಹಕ್ಕುಗಳು, ಸಂಸ್ಕೃತಿ, ಭಾಷೆ ಮತ್ತು ಭವಿಷ್ಯವನ್ನು ರಕ್ಷಿಸಲು ಕರ್ನಾಟಕ ಕೇಂದ್ರಿತ ಪಕ್ಷವು ಸ್ಥಾಪಿತವಾಗಿದೆ.
+      </p>
+
+      <h3 style="font-size: 24px; font-weight: bold; margin-bottom: 15px; color: darkblue;">ನಮ್ಮ ಉದ್ದೇಶಗಳು:</h3>
+      <ul style="font-size: 18px; line-height: 1.8; margin-left: 20px; margin-bottom: 20px;">
+        <li>ಕನ್ನಡ ಭಾಷೆ ಮತ್ತು ಸಂಸ್ಕೃತಿಗೆ ಆದ್ಯತೆ</li>
+        <li>ಕರ್ನಾಟಕದ ಸಮನ್ಯಾಯ ಅಭಿವೃದ್ಧಿ</li>
+        <li>ಯುವಶಕ್ತಿ ಮತ್ತು ಮಹಿಳಾ ಸಬಲೀಕರಣ</li>
+        <li>ಸ್ವಚ್ಛ, ನೈತಿಕ ರಾಜಕಾರಣ</li>
+        <li>ಕನ್ನಡಿಗರ ಹಿತಾಸಕ್ತಿಗೆ ಬದ್ಧತೆ</li>
+      </ul>
+
+      <p style="font-size: 20px; font-weight: bold; text-align: center; margin-top: 20px; color: green;">
+        ನಮ್ಮ ನಾಡು, ನಮ್ಮ ಅಳ್ವಿಕೆ – ಕನ್ನಡಿಗರ ಸಂಕಲ್ಪ!
+      </p>
+    </section>
+
+  <!-- Social Media Carousel -->
+<section class="about-us" style="background: transparent; box-shadow: none;">
+  <h2 style="text-align: center;">ನಮ್ಮ ಸಾಮಾಜಿಕ ಜಾಲತಾಣಗಳಲ್ಲಿ</h2>
+
+  <div style="position: relative; max-width: 100%; margin: 0 auto; overflow: hidden;">
+    <div id="socialTrack" style="display: flex; transition: transform 0.5s ease-in-out; gap: 20px;">
+      <!-- Twitter Embed -->
+      <div class="social-slide" style="min-width: 300px;">
+        <blockquote class="twitter-tweet" data-media-max-width="560"><p lang="kn" dir="ltr">2025ರ ಏಪ್ರಿಲ್ 22ರಂದು ಪಹಲಗಾಮ್‌ನಲ್ಲಿ ನಡೆದ ಭಯೋತ್ಪಾದಕ ದಾಳಿಗೆ ಪ್ರತಿಯಾಗಿ, ನಮ್ಮ ಭಾರತೀಯ ಸೇನೆ &quot;ಆಪರೇಷನ್ ಸಿಂಧೂರ್&quot; ಮೂಲಕ ಶತ್ರುಗಳಿಗೆ ತಕ್ಕ ಪ್ರತೀಕಾರ ನೀಡುತ್ತಿದೆ. ಇದು ನಮ್ಮ ದೇಶದ ಶಕ್ತಿಯ ಪ್ರತೀಕವಾಗಿದೆ. <br><br>ನಮ್ಮ ಸೇನೆಯ ಧೈರ್ಯ ಮತ್ತು ತ್ಯಾಗಕ್ಕೆ ಶತ ಶತ ನಮನಗಳು.<br>&quot;ನಮ್ಮ ನಾಡು ನಮ್ಮ ಆಳ್ವಿಕೆ&quot; ಸಂಘಟನೆಯ ವತಿಯಿಂದ,<br>ಭಾರತೀಯ… <a href="https://t.co/WSmiZcch0Z">pic.twitter.com/WSmiZcch0Z</a></p>&mdash; ನಮ್ಮ ನಾಡು ನಮ್ಮ ಆಳ್ವಿಕೆ (@karnatakaparty1) <a href="https://twitter.com/karnatakaparty1/status/1919967716854862219?ref_src=twsrc%5Etfw">May 7, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      <!-- Another Tweet -->
+      <div class="social-slide" style="min-width: 300px;">
+        <blockquote class="twitter-tweet" data-media-max-width="560"><p lang="kn" dir="ltr">ಜಾತಿ-ಭೇದ, ಭ್ರಾಂತಿಗಳನ್ನು ತೊರೆದು,<br>ಸಮಾನತೆಯ, ಸತ್ಯದ, ಶ್ರಮದ ಸಮಾಜವನ್ನೆ ನಿರ್ಮಿಸಲು<br>ಮನುಕುಲಕ್ಕೆ ದಿಕ್ಕು ತೋರಿದ ಆಧುನಿಕ ಚಿಂತಕರಲ್ಲಿ<br>ಬಸವಣ್ಣನವರು ಪ್ರಥಮರು. <br><br>ಮೌಡ್ಯಗಳು, ಗೊಡ್ಡು ಕಂದಾಚಾರಗಳಲ್ಲಿ ನರಳುತ್ತಿದ್ದ ಸಮಾಜಕ್ಕೆ<br>ಸರಳ ಬದುಕನ್ನ ಕಲಿಸಿಕೊಟ್ಟ ಮಾನವತಾವಾದಿ,<br>ತತ್ವಜ್ಞಾನಿ, ಹೆಮ್ಮೆಯ ಕನ್ನಡಿಗ ಬಸವಣ್ಣನವರು. <br><br>ಕಾಯಕದ ಘನತೆ… <a href="https://t.co/HTFZh6KkqR">pic.twitter.com/HTFZh6KkqR</a></p>&mdash; ನಮ್ಮ ನಾಡು ನಮ್ಮ ಆಳ್ವಿಕೆ (@karnatakaparty1) <a href="https://twitter.com/karnatakaparty1/status/1917425425833423275?ref_src=twsrc%5Etfw">April 30, 2025</a>
+        </blockquote> 
+      </div>
+      <!-- Another Tweet 1-->
+      <div class="social-slide" style="min-width: 300px;">
+        <blockquote class="twitter-tweet"><p lang="kn" dir="ltr">ಕಳೆದ ತಿಂಗಳ 21 ನೇ ತಾರೀಖಿನಂದು, ಕನ್ನಡಿಗ ವಿಕಾಸ್ ಕುಮಾರ್ ಮೇಲೆ ಹಲ್ಲೆ ನಡೆಸಿ, ಕನ್ನಡೇತರನೆಂಬ ಕಾರಣಕ್ಕೆ ತನ್ನ ಮೇಲೆ ಹಲ್ಲೆ ನಡೆಸಲಾಯಿತು ಎಂದು ಸುಳ್ಳು ವಿಡಿಯೋ ಹರಿಬಿಟ್ಟು, ರಾಷ್ಟ್ರೀಯ ಮಟ್ಟದಲ್ಲಿ ಕನ್ನಡಿಗರಿಗೆ, ಕರ್ನಾಟಕಕ್ಕೆ ಅಪಮಾನ ಮಾಡಲು ಯತ್ನಿಸಿದ ಭಾರತೀಯ ವಾಯು ಸೇನೆಯ ವಿಂಗ್ ಕಮಾಂಡರ್ ಶ್ರೀ ಶಿಲಾದಿತ್ಯ ಬೋಸ್ ರ ವಿರುದ್ಧ… <a href="https://t.co/2BTpvPye7S">pic.twitter.com/2BTpvPye7S</a></p>&mdash; ನಮ್ಮ ನಾಡು ನಮ್ಮ ಆಳ್ವಿಕೆ (@karnatakaparty1) <a href="https://twitter.com/karnatakaparty1/status/1918224452770513095?ref_src=twsrc%5Etfw">May 2, 2025</a></blockquote> 
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      <!-- Another Tweet 2-->
+      <div class="social-slide" style="min-width: 300px;">
+        <blockquote class="twitter-tweet"><p lang="kn" dir="ltr">ಧ್ರುವ್ ರಾಠಿ ಅವರು ತಮ್ಮ ಇತ್ತೀಚಿನ ಪಹಲ್ಗಾಂ ಘಟನೆ ಕುರಿತ ವಿಡಿಯೋದಲ್ಲಿ ಕನ್ನಡಿಗರ ಸ್ವಾಭಿಮಾನದ ಹೋರಾಟವನ್ನು ಭಯೋತ್ಪಾದಕ ಕೃತ್ಯಗಳೊಂದಿಗೆ ಹೋಲಿಸಿರುವುದು ಅತ್ಯಂತ ಖಂಡನೀಯ. ಇದು ಕನ್ನಡಿಗರ ಶಾಂತಿಯುತ ಹೋರಾಟದ ನೈತಿಕತೆಯನ್ನು ಪ್ರಶ್ನಿಸುವಂತಾಗಿದೆ. ಕನ್ನಡಿಗರು ತಮ್ಮ ಭಾಷೆ, ಸಂಸ್ಕೃತಿ ಮತ್ತು ಹಕ್ಕುಗಳಿಗಾಗಿ ನಡೆಸುತ್ತಿರುವ ಹೋರಾಟ… <a href="https://t.co/0bvjmHCOF2">pic.twitter.com/0bvjmHCOF2</a></p>&mdash; ನಮ್ಮ ನಾಡು ನಮ್ಮ ಆಳ್ವಿಕೆ (@karnatakaparty1) <a href="https://twitter.com/karnatakaparty1/status/1919242445847658808?ref_src=twsrc%5Etfw">May 5, 2025</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+      <!-- Instagram Embed -->
+      <div class="social-slide" style="min-width: 300px;">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DDudNBENOzP/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/DDudNBENOzP/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/DDudNBENOzP/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#0d0d0e; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by ನಮ್ಮ ನಾಡು ನಮ್ಮ ಆಳ್ವಿಕೆ (@karnatakaparty1)</a></p></div>
+        </blockquote>
+      </div>
+    </div>
+    
+    
+
+    <!-- Carousel Slide Bar -->
+    <div style="position: relative; width: 100%; display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 20px; z-index: 10;">
+      <!-- Left Arrow Button -->
+      <button onclick="scrollSocialTo((socialCarouselIndex - 1 + socialMaxIndex + 1) % (socialMaxIndex + 1))" style="background-color: rgba(0, 0, 0, 0.7); color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">&#10094;</button>
+      
+      <!-- Slide Indicators -->
+      <div id="socialSlideBar" style="display: flex; gap: 10px;"></div>
+      
+      <!-- Right Arrow Button -->
+      <button onclick="scrollSocialTo((socialCarouselIndex + 1) % (socialMaxIndex + 1))" style="background-color: rgba(0, 0, 0, 0.7); color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">&#10095;</button>
+    </div>
+
+    <!-- Carousel Controls for Social Media -->
+    <div class="carousel-controls" style="position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); z-index: 2;">
+      <button class="carousel-btn" onclick="scrollSocialTo((socialCarouselIndex - 1 + socialMaxIndex + 1) % (socialMaxIndex + 1))">&#10094;</button>
+      <button class="carousel-btn" onclick="scrollSocialTo((socialCarouselIndex + 1) % (socialMaxIndex + 1))">&#10095;</button>
+    </div>
+
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async src="//www.instagram.com/embed.js"></script>
+
+    <script>
+      // Adjust social-icons position dynamically
+      window.addEventListener('scroll', () => {
+      const socialIcons = document.querySelector('.social-icons');
+      socialIcons.style.top = `${window.scrollY + 300}px`;
+      });
+
+      let socialCarouselIndex = 0;
+      const socialSlideWidth = 320; // width + margin
+      const socialCarouselTrack = document.getElementById('socialTrack');
+      const socialSlideBar = document.getElementById('socialSlideBar');
+      const socialMaxIndex = Math.min(socialCarouselTrack.children.length - 1, 2); // Limit to 3 slides
+
+      // Create slide indicators dynamically for social carousel
+      for (let i = 0; i <= socialMaxIndex; i++) {
+      const indicator = document.createElement('div');
+      indicator.style.width = '14px';
+      indicator.style.height = '14px';
+      indicator.style.borderRadius = '50%';
+      indicator.style.backgroundColor = i === 0 ? '#FFD700' : '#808080'; // Gold for active, gray for inactive
+      indicator.style.cursor = 'pointer';
+      indicator.style.border = '2px solid black'; // Add border for better visibility
+      indicator.addEventListener('click', () => scrollSocialTo(i));
+      socialSlideBar.appendChild(indicator);
+      }
+
+      function scrollSocialTo(index) {
+      socialCarouselIndex = index;
+      updateSocialSlideBar();
+      socialCarouselTrack.style.transform = `translateX(-${socialCarouselIndex * (socialSlideWidth + 20)}px)`;
+      }
+
+      function updateSocialSlideBar() {
+      Array.from(socialSlideBar.children).forEach((indicator, i) => {
+        indicator.style.backgroundColor = i === socialCarouselIndex ? '#FFD700' : '#808080'; // Gold for active, gray for inactive
+      });
+      }
+
+      setInterval(() => {
+      socialCarouselIndex = (socialCarouselIndex + 1) % (socialMaxIndex + 1);
+      scrollSocialTo(socialCarouselIndex);
+      }, 7000);
+    </script>
+
+
+
+<!-- Footer -->
+<footer>
+  <div style="padding-bottom: 10px;">
+    ನೆಲ ಮಹಡಿ, ಸಂ.ಸಂ.40(೫), ೨ನೇ ಎ ಮೈನ್ ರಸ್ತೆ, 1ನೇ ಹಂತ 2ನೇ ಹಂತ, ಚಂದ್ರ ಲೇಔಟ್, ಬೆಂಗಳೂರು – 560040
+  </div>
+  <div style="padding-bottom: 10px;">
+    ಇಮೇಲ್:<b> <a href="mailto:NNNAKarnataka@gmail.com" style="color: blue;">NNNAlarnataka@gmail.com</a></b>
+  </div>
+  <div style="padding-bottom: 10px;">
+    ಸಂಪರ್ಕ ಸಂಖ್ಯೆ:<b>+91 99005 20395 / +91 93411 10782</b> 
+  </div>
+  <div style="padding-bottom: 10px;">
+    © 2025 ನಮ್ಮ ನಾಡು ನಮ್ಮ ಅಳ್ವಿಕೆ. ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.
+  </div>
+</footer>
+
+
+    <script>
+      let index = 0;
+      const track = document.querySelector('.carousel-track');
+      const totalSlides = document.querySelectorAll('.carousel-slide').length;
+
+      function moveSlide(step) {
+        index = (index + step + totalSlides) % totalSlides;
+        track.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      setInterval(() => moveSlide(1), 3000);
+
+      function changeLanguage(lang) {
+        if (lang === "en") {
+          window.location.href = "/en"; // Redirect to English site page
+        } else {
+          window.location.href = "/"; // Redirect to Kannada page
+        }
+      }
+  const socialTrack = document.querySelector('#socialCarousel .carousel-track');
+  const socialSlides = document.querySelectorAll('#socialCarousel .carousel-slide').length;
+
+  function moveSlideSocial(step) {
+    socialIndex = (socialIndex + step + socialSlides) % socialSlides;
+          socialTrack.style.transform = `translateX(-${socialIndex * 100}%)`;
+}
+
+setInterval(() => moveSlideSocial(1), 7000);
+
+    </script>
+
+  </body>
+  </html>

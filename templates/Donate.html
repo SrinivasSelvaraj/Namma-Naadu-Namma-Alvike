@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Under Development</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Akaya Kanadaka', sans-serif;
+      background: linear-gradient(to bottom, red, yellow);
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+      text-align: center;
+      color: black;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      animation: pulse 2s infinite;
+    }
+
+    p {
+      font-size: 24px;
+      margin-top: 0;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      background: white;
+      color: black;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      border: 2px solid black;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .buttons a:hover {
+      background: yellow;
+      color: black;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .social-icons {
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      color: white;
+      background-color: #333;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 20px;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🚧 Website Under Development 🚧</h1>
+  <p>We are working hard to bring something amazing! Stay tuned...</p>
+
+  <!-- Buttons -->
+  <div class="buttons">
+    <a href="/">🏠 Home</a>
+  </div>
+
+  <!-- Social Media -->
+  <div class="social-icons">
+    <a href="https://x.com/karnatakaparty1" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://x.com/karnatakaparty1" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://x.com/karnatakaparty1" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/karnatakaparty1" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <!-- FontAwesome icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Land Our Rule</title>
+  <link rel="icon" href="https://pbs.twimg.com/profile_images/1830466266475483136/Ep0gEiM__400x400.jpg" type="image/png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* [Styles are identical as your original, so not changing here] */
+    body {
+      margin: 0;
+      font-family: 'Akaya Kanadaka', sans-serif;
+      background: linear-gradient(to bottom, red, yellow);
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      backdrop-filter: blur(5px);
+      overflow-x: hidden;
+      padding-top: 140px;
+    }
+    .header-container {
+      background: linear-gradient(to bottom, yellow 60%, red 40%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100px;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    .left-container {
+      flex: 0 0 auto;
+    }
+    .emblem {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid white;
+      background-color: white;
+    }
+    .title-container {
+      flex: 1;
+      text-align: center;
+      color: black;
+    }
+    .title-line h1, .title-line h2 {
+      margin: 0;
+      font-weight: bold;
+      font-size: 40px;
+    }
+    .title-line h2 {
+      font-weight: normal;
+      font-size: 25px;
+    }
+    .language-switch {
+      position: absolute;
+      right: 50px;
+      top: 35px;
+    }
+    .language-switch select {
+      padding: 5px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+    .sub-header {
+      background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 10px 20px;
+      position: fixed;
+      top: 100px;
+      width: 100%;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    .sub-header a {
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background-color 0.3s, color 0.3s;
+      font-size: 16px;
+      border: 1px solid black;
+    }
+    .sub-header a:hover {
+      background-color: yellow;
+      color: black;
+    }
+    .carousel {
+      margin-top: 30px;
+      width: 100%;
+      max-width: 1000px;
+      margin-inline: auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 400px;
+      background-size: cover;
+      background-position: center;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    .carousel-btn {
+      background-color: rgba(0, 0, 0, 0.4);
+      border: none;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      padding: 10px 20px;
+      transition: background-color 0.3s;
+    }
+    .carousel-btn:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .social-icons {
+      position: fixed;
+      top: 200px;
+      right: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 999;
+    }
+    .social-icons a {
+      color: white;
+      background-color: #333;
+      padding: 12px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 20px;
+      transition: background-color 0.3s;
+    }
+    .social-icons a:hover {
+      background-color: #555;
+    }
+    .about-us {
+      max-width: 1000px;
+      background: orange;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .about-us h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .about-us p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+      text-align: left;
+    }
+    .about-us ul {
+      text-align: left;
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    .about-us ul li {
+      margin-bottom: 8px;
+    }
+    footer {
+      background: linear-gradient(to bottom, yellow 40%, red 50%);
+      color: black;
+      text-align: center;
+      padding: 10px;
+      font-weight: lighter;
+      margin-top: 20px;
+      font-size: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header-container">
+    <div class="left-container">
+      <img src="https://pbs.twimg.com/profile_images/1830466266475483136/Ep0gEiM__400x400.jpg" alt="Emblem" class="emblem">
+    </div>
+
+    <div class="title-container">
+      <div class="title-line">
+        <h1>Our Land Our Rule</h1>
+      </div>
+      <div class="title-line">
+        <h2>A Party Centered on Kannadigas</h2>
+      </div>
+    </div>
+
+    <div class="language-switch">
+      <select onchange="changeLanguage(this.value)">
+        <option value="kn">Kannada</option>
+        <option value="en" selected>English</option>
+      </select>
+    </div>
+  </header>
+
+  <!-- Sub-header -->
+  <nav class="sub-header">
+    <a href="/Donate">Donate</a>
+    <a href="/ContactUs">Contact Us</a>
+    <a href="/Login">Login</a>
+    <a href="/Register">Register</a>
+  </nav>
+
+  <!-- Carousel -->
+  <div class="carousel" id="carousel">
+    <div class="carousel-track">
+      <div class="carousel-slide" style="background-image: url('https://pbs.twimg.com/media/GbS78mxb0AAUQC5?format=jpg&name=large');"></div>
+      <div class="carousel-slide" style="background-image: url('https://pbs.twimg.com/media/GbS78mxb0AAUQC5?format=jpg&name=large');"></div>
+      <div class="carousel-slide" style="background-image: url('https://pbs.twimg.com/media/GbS78mxb0AAUQC5?format=jpg&name=large');"></div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" onclick="moveSlide(-1)">&#10094;</button>
+      <button class="carousel-btn" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+  </div>
+
+  <!-- Social Media -->
+  <div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=61565653887449" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://x.com/karnatakaparty1" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.instagram.com/karnatakaparty1" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/karnatakaparty1" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+
+  <!-- About Us -->
+  <section class="about-us">
+    <h2><b>About Us</b></h2>
+
+    <p>Founded on the principle of "Our Land, Our Identity", the Karnataka-Centric Party is dedicated to protecting the rights, culture, language, and future of Kannadigas.</p>
+
+    <h3>Our Objectives:</h3>
+    <ul>
+      <li>Prioritize Kannada language and culture</li>
+      <li>Equitable development of Karnataka</li>
+      <li>Youth empowerment and women's empowerment</li>
+      <li>Clean and ethical politics</li>
+      <li>Commitment to the welfare of Kannadigas</li>
+    </ul>
+
+    <p style="font-weight: bold;">Our Land, Our Identity – A Pledge by Kannadigas!</p>
+  </section>
+
+  <footer>
+    <div style="padding-bottom: 10px;">
+      Ground Floor, No. 40(5), 2nd A Main Road, 1st Stage, 2nd Phase, Chandra Layout, Bengaluru – 560040
+    </div>
+    <div style="padding-bottom: 10px;">
+      email:<b> <a href="mailto:NNNAlarnataka@gmail.com" style="color: blue;">NNNAlarnataka@gmail.com</a></b>
+    </div>
+    <div style="padding-bottom: 10px;">
+      Contact Info:<b>+91 99005 20395 / +91 93411 10782</b> 
+    </div>
+    <div style="padding-bottom: 10px;">
+    © 2025 Our Land Our Identity. All rights reserved.
+  </footer>
+
+  <script>
+    let index = 0;
+    const track = document.querySelector('.carousel-track');
+    const totalSlides = document.querySelectorAll('.carousel-slide').length;
+
+    function moveSlide(step) {
+      index = (index + step + totalSlides) % totalSlides;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    setInterval(() => moveSlide(1), 3000);
+
+    function changeLanguage(lang) {
+      if (lang === "kn") {
+        window.location.href = "/"; 
+      } else {
+        window.location.href = "/en";
+      }
+    }
+  </script>
+
+</body>
+</html>
