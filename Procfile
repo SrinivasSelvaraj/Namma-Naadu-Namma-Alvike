@@ -1,1 +1,1 @@
-web: cd /opt/render/project/src && gunicorn App:app
+web: cd /opt/render/project/src && gunicorn app:app
