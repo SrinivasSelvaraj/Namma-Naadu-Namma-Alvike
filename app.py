@@ -4,13 +4,16 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo
 from flask_mysqldb import MySQL
 import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load environment variables from .env file
 
 app = Flask(__name__)
 app.config["MYSQL_HOST"] = os.getenv("MYSQL_HOST", "127.0.0.1")
 app.config["MYSQL_USER"] = os.getenv("MYSQL_USER", "root")
 app.config["MYSQL_PASSWORD"] = os.getenv("MYSQL_PASSWORD", "")
 app.config["MYSQL_DB"] = os.getenv("MYSQL_DB", "MyDataBase")
-app.secret_key = os.getenv("SECRET_KEY", "your_secret_key_here")
+app.secret_key = os.getenv("SECRET_KEY", "fallback_secret_key")
 
 mysql = MySQL(app)
 
@@ -121,15 +124,6 @@ def ContactUs():
 
     return render_template("ContactUs.html")
 
-@app.route('/test-db')
-def test_db():
-    try:
-        cursor = mysql.connection.cursor()
-        cursor.execute("SELECT DATABASE();")
-        db_name = cursor.fetchone()
-        return f"Connected to database: {db_name[0]}"
-    except Exception as e:
-        return f"Database connection failed: {str(e)}"
 
 if __name__ == '__main__':
     app.run(debug=True)
